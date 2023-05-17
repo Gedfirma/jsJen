@@ -26,7 +26,7 @@ pipeline {
 
         stage('Docker Image Build') {
             steps {
-                docker.build("nodejs:${BUILD_NUMBER}")
+                sh 'docker build -t nodejs:v1 .'
             }
         }
 
