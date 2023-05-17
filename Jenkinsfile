@@ -1,6 +1,10 @@
 pipeline {
     agent any
     
+    tool {
+        nodejs 'nodejs-installer'
+    }
+    
     stages{
         stage('Checkout') {
             steps {
