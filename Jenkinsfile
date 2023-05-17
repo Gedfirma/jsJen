@@ -1,10 +1,10 @@
 pipeline {
     agent any
-    
+
     environment {
-        BUILD_NUMBER = '1.1'
+       BUILD_NUMBER = '1.1'
     }
-    
+
     tools {
         nodejs 'nodejs-installer'
     }
@@ -16,6 +16,7 @@ pipeline {
             }
         }
     
+
         stage('Build') {
             steps {
                 sh 'npm install'
@@ -25,7 +26,7 @@ pipeline {
 
         stage('Docker Image Build') {
             steps {
-                sh 'docker build -t nodejs:${env.BUILD_NUMBER} .'
+                sh 'docker build -t nodejs:${BUILD_NUMBER} .'
             }
         }
 
@@ -33,11 +34,10 @@ pipeline {
             steps {
                 withAWS(credentials: 'AWS_IAM', region: 'us-east-1'){
                     sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 170681944236.dkr.ecr.us-east-1.amazonaws.com'
-                    sh 'docker tag nodejs:${env.BUILD_NUMBER} 170681944236.dkr.ecr.us-east-1.amazonaws.com/nodejs-tst/nodejs:${env.BUILD_NUMBER}'
-                    sh 'docker push 170681944236.dkr.ecr.us-east-1.amazonaws.com/nodejs-tst/nodejs:${env.BUILD_NUMBER}'
+                    sh 'docker tag nodejs:${BUILD_NUMBER} 170681944236.dkr.ecr.us-east-1.amazonaws.com/nodejs-tst/nodejs:${BUILD_NUMBER}'
+                    sh 'docker push 170681944236.dkr.ecr.us-east-1.amazonaws.com/nodejs-tst/nodejs:${BUILD_NUMBER}'
                 }
             }
         }
     }
-
 }   
