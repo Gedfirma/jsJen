@@ -10,6 +10,8 @@ pipeline {
     
         stage('Build') {
             steps {
+                sh 'curl -s https://deb.nodesource.com/setup_16.x | sudo bash'
+                sh 'sudo apt install nodejs -y'
                 sh 'npm install'
                 sh 'npm build'
             }         
