@@ -1,0 +1,14 @@
+{
+  "name": "docker_web_app",
+  "version": "1.0.0",
+  "description": "NodeJS on Docker",
+  "author": "mile maric",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "echo 'hello world'"
+  },
+  "dependencies": {
+    "express": "^4.16.1"
+  }
+}
