@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     environment {
-        BUILD_NUMBER= "1.1"
+        BUILD_NUMBER = '1.1'
     }
     
     tools {
