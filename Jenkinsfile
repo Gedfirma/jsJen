@@ -34,7 +34,9 @@ pipeline {
         stage('Docker Image Build') {
             steps {
                 //sh 'docker build -t app/nodejs .'
-                app = docker.build("underwater")
+                script{
+                  app = docker.build("underwater")
+                }
             }
         }
 
