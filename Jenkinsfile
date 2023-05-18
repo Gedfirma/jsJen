@@ -28,12 +28,13 @@ pipeline {
             steps{
                 sh 'ls -al'
                 sh 'pwd'
+                sh 'docker ps'
             }
         }
         
         stage('Docker Image Build') {
             steps {
-                sh 'docker build -t nodejs:v1 .'
+                sh 'docker build -t app/nodejs .'
             }
         }
 
