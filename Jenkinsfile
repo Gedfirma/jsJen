@@ -1,6 +1,13 @@
 pipeline {
     agent any
-
+    options {
+        buildDiscarder logRotator(
+            artifactDaysToKeepStr: "30",
+            artifactNumToKeepStr: "100",
+            daysToKeepStr: "60",
+            numToKeepStr: "200"
+        )
+    }
     environment {
        BUILD_NUMBER = '1.1'
     }
