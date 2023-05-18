@@ -28,13 +28,13 @@ pipeline {
             steps{
                 sh 'ls -al'
                 sh 'pwd'
-                sh 'docker ps'
             }
         }
         
         stage('Docker Image Build') {
             steps {
-                sh 'docker build -t app/nodejs .'
+                //sh 'docker build -t app/nodejs .'
+                app = docker.build("underwater")
             }
         }
 
