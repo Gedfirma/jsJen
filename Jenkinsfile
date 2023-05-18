@@ -23,7 +23,14 @@ pipeline {
                 sh 'npm run build'
             }         
         }
-
+        
+        stage('Check folders and path') {
+            steps{
+                sh 'ls -al'
+                sh 'pwd'
+            }
+        }
+        
         stage('Docker Image Build') {
             steps {
                 sh 'docker build -t nodejs:v1 .'
