@@ -10,6 +10,7 @@ pipeline {
     }
     environment {
        BUILD_NUMBER = '1.1'
+       dockerImage = ''
     }
 
     tools {
@@ -42,7 +43,7 @@ pipeline {
             steps {
                 //sh 'docker build -t app/nodejs .'
                 script{
-                    docker.build("nodejs:v1")
+                    dockerImage = docker.build nodejs:v1
                 }
             }
         }
