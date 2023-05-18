@@ -41,10 +41,10 @@ pipeline {
         
         stage('Docker Image Build') {
             steps {
-                sh 'docker build -t nodejs:v1 .'
-                //script{
-                //    dockerImage = docker.build('nodejs:v1')
-                //}
+                //sh 'docker build -t nodejs:v1 .'
+                script{
+                    docker.build('nodejs:v1','Dockerfile')
+                }
             }
         }
 
