@@ -42,7 +42,7 @@ pipeline {
             steps {
                 //sh 'docker build -t app/nodejs .'
                 script{
-                  app = docker.build("underwater")
+                    docker.build("nodejs:v1")
                 }
             }
         }
