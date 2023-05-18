@@ -43,7 +43,7 @@ pipeline {
             steps {
                 //sh 'docker build -t app/nodejs .'
                 script{
-                    dockerImage = docker.build nodejs
+                    dockerImage = docker.build('nodejs:v1')
                 }
             }
         }
